@@ -1,0 +1,47 @@
+<template>
+    <div>
+        <form @submit="addTodo">
+            <input type='text' class='add-todo' v-model='title' name="title" id="" placeholder="AddTodo...">
+            <input type="submit" value="Submit" class="btn">
+        </form>
+    </div>
+</template>
+<script>
+// import uuid from 'uuid';
+
+export default {
+    name:"AddTodo",
+    data(){
+        return{
+            title:''
+        }
+    },
+    methods:{
+        addTodo(e){
+            e.preventDefault();
+            const newTodo={
+                // id:uuid.v4(),
+                title:this.title,
+                complete:false
+            }
+            // send up to parent
+            this.$emit('add-todo', newTodo);
+            this.title = '';
+        }
+    }
+}
+</script>
+<style scoped>
+    form{
+        display: flex;
+    }
+    input[type="text"]{
+        flex: 10;
+        padding:5px;
+    }
+    input[type="submit"]{
+        flex:2;
+    }
+</style>
+
+
