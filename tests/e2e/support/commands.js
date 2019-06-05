@@ -23,3 +23,9 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('seedAnvVisit', (seedData = 'fixture:todos')=>{
+    cy.server()
+    cy.route('GET', '/api/todos', seedData)
+    cy.visit('/')
+})

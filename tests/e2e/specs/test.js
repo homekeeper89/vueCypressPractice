@@ -48,5 +48,8 @@ describe('My First Test', ()=>{
     cy.get("input[type='checkbox']").first().click()
     cy.get('.todo-item').first().should('have.class', 'is-complete')
   })
-
+  it('Submit data another way', ()=>{
+    cy.get('input.add-todo').type('동영님 E2E 테스트 왜 안했어요')
+    cy.contains('Submit').click()
+  })
 })
