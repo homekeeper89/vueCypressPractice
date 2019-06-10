@@ -13,7 +13,7 @@ describe('Smoke test', ()=>{
                 .as('create')
 
             cy.focused()
-                .type('But mike{enter}')
+                .type('But milk{enter}')
             cy.wait('@create')
 
             cy.get('.todo-list li')
