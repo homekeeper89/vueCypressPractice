@@ -29,3 +29,10 @@ Cypress.Commands.add('seedAnvVisit', (seedData = 'fixture:todos')=>{
     cy.route('GET', '/api/todos', seedData)
     cy.visit('/')
 })
+
+Cypress.Commands.add('login', ()=>{
+    cy.visit('/#/login')
+    cy.get('[data-test=email]').type('joe@example.com')
+    cy.get('[data-test=password]').type('joe#{enter}')
+    cy.hash().should('eq', '#/') // 로그인 된것인지 아는 방법
+})

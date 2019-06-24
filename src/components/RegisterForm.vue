@@ -30,7 +30,7 @@ export default {
     },
     methods:{
         PostRegisterForm(){
-            axios.post('http://localhost:8081/api/posts', this.DTO)
+            axios.post('http://dev.gdnet.co.kr/kkk/api/posts', this.DTO)
             .then(res => {
                 alert('yes')
             })
