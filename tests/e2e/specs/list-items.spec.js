@@ -52,7 +52,7 @@ describe('List items', () =>{
                     `/api/todos/${target.id}`,
                     Cypress._.merge(target, {isComplete:true})
                     )
-            })
+            }) 
         cy.get('todo-list li')
             .first()
             .as('first-todo')

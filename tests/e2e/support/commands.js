@@ -36,3 +36,19 @@ Cypress.Commands.add('login', ()=>{
     cy.get('[data-test=password]').type('joe#{enter}')
     cy.hash().should('eq', '#/') // 로그인 된것인지 아는 방법
 })
+
+Cypress.Commands.add('login_two', ()=>{
+    cy.request({
+    method:'POST',
+    url:'http://localhost:3000/api/users/login',
+        body:{
+            user:{
+                email:'joe@example.com',
+                password:'joe',
+            }
+        }
+    })
+    .then((resp) =>{
+        window.localStorage.setItem('jwt', resp.body.user.token)
+    })
+})

@@ -2,7 +2,6 @@ describe('/login', ()=>{
     beforeEach(()=>{
         cy.visit('/#/login')
     })
-
     it('greets with Sign in', ()=>{
         cy.consains('h1', 'Sign in')
     })
